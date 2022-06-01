@@ -5,7 +5,10 @@
 A ROS 2 package for selecting among a number of incoming geometry_msg/msg/Twist messages, choosing the highest
 priority one to republish on the output topic.  It will automatically dislodge streams that are lower
 priority or that stop publishing for any reason.  The stream currently in use is published on the
-"active" topic.
+"active" topic.  
+
+Requires [ros_testing](https://github.com/ros2/ros_testing)  
+Changed default output topic to `/mux/cmd_vel` to ensure new publishing topics don't interfere with the current system...
 
 ## Published Topics
 * `/active` (`std_msgs/msg/String`) - A latched topic.  Publishes the "name" field of the currently active `geometry_msgs/msg/Twist` stream (see Parameters below), or "idle" if nothing is being a published.
