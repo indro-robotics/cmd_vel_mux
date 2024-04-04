@@ -16,9 +16,9 @@ cmd_vel_mux:
   ros__parameters:
     subscribers:
         default_input:
-          topic:       "/mux/cmd_vel_rocos"
+          topic:       "/mux/cmd_vel_teleop"
           timeout:     0.1
-          priority:    0
+          priority:    9
           short_desc:  "The default cmd_vel is from rocos."
         navigation_stack:
           topic:       "/mux/cmd_vel_autonomous"
@@ -28,5 +28,10 @@ cmd_vel_mux:
         autodrive_stack:
           topic:       "/mux/cmd_vel_autodrive"
           timeout:     0.1
-          priority:    10
+          priority:    8
           short_desc:  "Navigation stack remote control"
+        zedx_depth_stop:
+          topic:       "/mux/cmd_vel_stop"
+          timeout:     0.5
+          priority:    10
+          short_desc:  "The default cmd_vel is from rocos."
