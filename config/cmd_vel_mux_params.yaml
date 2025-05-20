@@ -11,22 +11,22 @@
 #   timeout:        Time in seconds without incoming messages to consider this topic inactive
 #   priority:       Priority: an UNIQUE unsigned integer from 0 (lowest) to MAX_INT
 #   short_desc:     Short description
-
 cmd_vel_mux:
   ros__parameters:
     subscribers:
         default_input:
-          topic:       "/mux/cmd_vel_rocos"
+          topic:       "/mux/cmd_vel_teleop"
           timeout:     0.1
-          priority:    0
-          short_desc:  "The default cmd_vel is from rocos."
+          priority:    9
+          short_desc:  "The default  teleop cmd_vel"
+        
+        zedx_depth_stop:
+          topic:       "/mux/cmd_vel_stop"
+          timeout:     0.5
+          priority:    10
+          short_desc:  "The default stop cmd_vel "
         navigation_stack:
-          topic:       "/mux/cmd_vel_autonomous"
+          topic:       "/cmd_vel_nav"
           timeout:     0.5
           priority:    1
           short_desc:  "Navigation stack controller"
-        autodrive_stack:
-          topic:       "/mux/cmd_vel_autodrive"
-          timeout:     0.1
-          priority:    10
-          short_desc:  "Navigation stack remote control"
